@@ -23,7 +23,7 @@ var indexRoutes      = require("./routes/index"),
 var middleware = require("./middleware/");
     
 //config
-mongoose.connect("mongodb+srv://admin:KukaCam412989@cluster0-vcmsq.mongodb.net/yelp_camp?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect(process.env.YELPCAMPDB, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public")); //for style sheet
 app.use(methodOverride("_method")); //HTML doesnt support PUT so this will look for arg and treat it as the route specified.
